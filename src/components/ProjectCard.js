@@ -5,23 +5,28 @@ import React from 'react';
 const ProjectCard = ({ title, description, technologies, achievements, links }) => {
   return (
     <div className="card project-card">
-      <h3 className="card-title">{title}</h3>
+      <div className="card-header">
+        <span className="card-indicator"></span>
+        <h3 className="card-title">{title}</h3>
+      </div>
       <div className="card-content">
         <p className="project-description">{description}</p>
         
         {achievements && achievements.length > 0 && (
           <div className="achievements-container">
-            <h4>Achievements</h4>
+            <h4 className="section-subtitle">Achievements</h4>
             <ul className="achievements-list">
               {achievements.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
+                <li key={index}>
+                  <span className="terminal-bullet">›</span> {achievement}
+                </li>
               ))}
             </ul>
           </div>
         )}
         
         <div className="technologies-container">
-          <h4>Technologies</h4>
+          <h4 className="section-subtitle">Technologies</h4>
           <div className="tech-tags">
             {technologies.map((tech, index) => (
               <span key={index} className="tech-tag">{tech}</span>

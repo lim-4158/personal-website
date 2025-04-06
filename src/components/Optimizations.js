@@ -45,40 +45,6 @@ const LazyLoad = () => {
   return null;
 };
 
-// Mobile menu functionality
-const MobileMenu = () => {
-  useEffect(() => {
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-menu .nav-link');
-
-    if (!menuBtn || !mobileMenu) return;
-
-    const toggleMenu = () => {
-      menuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-    };
-
-    menuBtn.addEventListener('click', toggleMenu);
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-      });
-    });
-
-    return () => {
-      menuBtn.removeEventListener('click', toggleMenu);
-      mobileLinks.forEach(link => {
-        link.removeEventListener('click', toggleMenu);
-      });
-    };
-  }, []);
-
-  return null;
-};
-
 // Performance optimizations
 const PerformanceOptimizations = () => {
   useEffect(() => {
@@ -86,7 +52,7 @@ const PerformanceOptimizations = () => {
     const preloadLinks = [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-      { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', as: 'style' }
+      { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@300;400;500;600;700&display=swap', as: 'style' }
     ];
 
     preloadLinks.forEach(link => {
@@ -122,7 +88,6 @@ const Optimizations = () => {
   return (
     <>
       <LazyLoad />
-      <MobileMenu />
       <PerformanceOptimizations />
     </>
   );

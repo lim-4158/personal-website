@@ -6,6 +6,7 @@ import Link from 'next/link';
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,44 +42,94 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <Link href="#home" className="nav-logo">
-          LTH
+        <Link href="#home" className="nav-logo" onClick={closeMenu}>
+          <span data-text="LTH" className="glitch">LTH</span>
         </Link>
+        
+        {/* Desktop Navigation */}
         <div className="nav-links">
           <Link
             href="#home"
             className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
           >
-            Home
+            HOME
           </Link>
           <Link
             href="#experiences"
             className={`nav-link ${activeSection === 'experiences' ? 'active' : ''}`}
           >
-            Experience
+            EXPERIENCE
           </Link>
           <Link
             href="#projects"
             className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
           >
-            Projects
+            PROJECTS
           </Link>
           <Link
             href="#activities"
             className={`nav-link ${activeSection === 'activities' ? 'active' : ''}`}
           >
-            Activities
+            ACTIVITIES
           </Link>
         </div>
-        <button className="mobile-menu-btn hidden">
+        
+        {/* Mobile Menu Button - Visible only on mobile */}
+        <button 
+          className={`mobile-menu-btn ${mobileMenuOpen ? 'active' : ''}`} 
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
+      
+      {/* Mobile Menu - Hidden by default */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu active">
+          <Link
+            href="#home"
+            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            HOME
+          </Link>
+          <Link
+            href="#experiences"
+            className={`nav-link ${activeSection === 'experiences' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            EXPERIENCE
+          </Link>
+          <Link
+            href="#projects"
+            className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            PROJECTS
+          </Link>
+          <Link
+            href="#activities"
+            className={`nav-link ${activeSection === 'activities' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            ACTIVITIES
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

@@ -10,7 +10,6 @@
 └── components/
     ├── Layout.js (Common layout wrapper)
     ├── Navigation.js (Navigation menu)
-    ├── ThreeScene.js (Main Three.js scene)
     ├── ExperienceCard.js (Work experience component)
     ├── ProjectCard.js (Project showcase component)
     ├── ActivityCard.js (Activities component)
