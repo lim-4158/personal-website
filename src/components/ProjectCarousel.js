@@ -171,7 +171,7 @@ const ProjectCarousel = ({ projects }) => {
         })}
       </div>
       
-      <div className="carousel-indicators">
+      {/* <div className="carousel-indicators">
         {projects.map((_, index) => (
           <span 
             key={index}
@@ -179,7 +179,7 @@ const ProjectCarousel = ({ projects }) => {
             onClick={() => handleCardClick(index)}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

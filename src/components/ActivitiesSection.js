@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import ActivityCard from '@/components/ActivityCard';
+import React, { useState } from 'react';
 
 const activitiesData = [
   {
@@ -23,29 +22,29 @@ const activitiesData = [
     ]
   },
   {
-    category: "Education",
+    category: "Entrepreneurship",
     title: "Student Ambassador, NUS Enterprise Summer Programme",
-    period: "2024",
+    period: "Aug 2024",
     description: [
-      "Represented NUS Enterprise during the Summer Programme in Entrepreneurship",
-      "Guided and mentored program participants",
-      "Facilitated workshops and networking events"
+      "Led a team of 5 and pitched about a micro learning app to replace doom scrolling during demo day",
+      "Learnt about entrepreneurship from serial entrepreneurs",
+      "Facilitated as the bridge between NUS Enterprise and the participants"
     ]
   },
   {
     category: "Athletics",
     title: "Varsity Athlete, NUS Badminton",
-    period: "2023 – Present",
+    period: "Aug 2023 – May 2024",
     description: [
-      "SuniG 2023 Gold Medalist",
-      "IVP Games 2024 Bronze Medalist",
-      "Badminton Captain – led and coached Eusoff Hall Badminton Team to Inter-Hall Games Champions"
+      "Singapore University Games 2023 Gold Medalist",
+      "Institute-Varsity-Polytechnic Games 2024 Bronze Medalist",
+
     ]
   },
   {
     category: "Community",
     title: "Eusoff Hall Block Committee",
-    period: "2023 – Present",
+    period: "Aug 2023 – May 2024",
     description: [
       "Planned bi-weekly bonding events for 100 residents",
       "Fostered community engagement and hall spirit"
@@ -54,16 +53,50 @@ const activitiesData = [
 ];
 
 const ActivitiesSection = () => {
+  const [expandedActivity, setExpandedActivity] = useState(null);
+
+  const toggleActivity = (index) => {
+    if (expandedActivity === index) {
+      setExpandedActivity(null);
+    } else {
+      setExpandedActivity(index);
+    }
+  };
+
   return (
-    <div className="activities-grid">
+    <div className="activities-list">
       {activitiesData.map((activity, index) => (
-        <ActivityCard
-          key={index}
-          category={activity.category}
-          title={activity.title}
-          period={activity.period}
-          description={activity.description}
-        />
+        <div 
+          key={index} 
+          className={`activity-item ${expandedActivity === index ? 'expanded' : ''}`}
+          onClick={() => toggleActivity(index)}
+        >
+          <div className="activity-header">
+            <div className="activity-title-row">
+              <span className="activity-indicator"></span>
+              <h3 className="activity-title">{activity.title}</h3>
+              <span className="activity-expand-icon">{expandedActivity === index ? '−' : '+'}</span>
+            </div>
+            <div className="activity-meta">
+              <span className="activity-category">{activity.category}</span>
+              <span className="activity-period">{activity.period}</span>
+            </div>
+          </div>
+          
+          <div className="activity-content">
+            {Array.isArray(activity.description) ? (
+              <ul className="activity-description-list">
+                {activity.description.map((item, idx) => (
+                  <li key={idx}>
+                    <span className="terminal-bullet">›</span> {item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="activity-description">{activity.description}</p>
+            )}
+          </div>
+        </div>
       ))}
     </div>
   );
