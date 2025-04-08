@@ -39,9 +39,9 @@ export default function Home() {
       <section id="home" className="content-section">
         <div className="container">
           <div className="hero-content fade-in">
-            <h1 data-text="Lim Teng Hong" className="glitch">Lim Teng Hong</h1>
+            <h1 data-text="Lim Teng Hong" className="glitch">Lim Teng Hong </h1>
             <h3>
-              <span className="terminal-text">Software Engineer & Developer</span>
+              <span className="terminal-text">Software Engineer</span>
             </h3>
             <p>
               Building innovative solutions with a focus on user experience and cutting-edge technologies.

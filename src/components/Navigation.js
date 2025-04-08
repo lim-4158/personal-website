@@ -54,7 +54,7 @@ const Navigation = () => {
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <Link href="#home" className="nav-logo" onClick={closeMenu}>
-          <span data-text="LTH" className="glitch">LTH</span>
+          <span data-text="LTH (Under Construction)" className="glitch">LTH</span>
         </Link>
         
         {/* Desktop Navigation */}
