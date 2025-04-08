@@ -1,0 +1,200 @@
+'use client';
+
+import React, { useState } from 'react';
+
+const TimelineExperience = ({ experiences }) => {
+  const [activeExp, setActiveExp] = useState(null);
+
+  return (
+    <div className="timeline-container">
+      <div className="timeline-track">
+        {experiences.map((exp, index) => (
+          <div key={index} className="timeline-item">
+            <div 
+              className={`timeline-node ${activeExp === index ? 'active' : ''}`}
+              onClick={() => setActiveExp(activeExp === index ? null : index)}
+            >
+              <span className="timeline-date">{exp.period}</span>
+            </div>
+            <div className={`timeline-content ${activeExp === index ? 'expanded' : ''}`}>
+              <h3>{exp.title}</h3>
+              <h4>{exp.company}</h4>
+              <div className="timeline-details">
+                <ul>
+                  {exp.description.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+                <div className="timeline-skills">
+                  {exp.skills.map((skill, idx) => (
+                    <span key={idx} className="timeline-skill-tag">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default TimelineExperience;
+
+/* CSS to add to your stylesheet:
+
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-track {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  border-radius: 4px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 40px;
+}
+
+.timeline-node {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 3px solid var(--accent-primary);
+  left: 2px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.timeline-node:hover, .timeline-node.active {
+  background: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.7);
+  transform: translateX(-50%) scale(1.2);
+}
+
+.timeline-date {
+  position: absolute;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  left: 40px;
+  width: max-content;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-node:hover .timeline-date, .timeline-node.active .timeline-date {
+  opacity: 1;
+}
+
+.timeline-content {
+  background: rgba(30, 33, 48, 0.8);
+  border-left: 3px solid var(--accent-secondary);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.timeline-content.expanded {
+  max-height: 500px;
+  background: rgba(30, 33, 48, 1);
+  box-shadow: 0 5px 15px rgba(1, 200, 238, 0.2);
+}
+
+.timeline-content h3 {
+  margin: 0 0 0.5rem;
+  color: var(--text-highlight);
+}
+
+.timeline-content h4 {
+  margin: 0 0 1rem;
+  color: var(--accent-secondary);
+  font-size: 0.9rem;
+}
+
+.timeline-details {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.timeline-content.expanded .timeline-details {
+  opacity: 1;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.timeline-skill-tag {
+  background-color: rgba(1, 200, 238, 0.1);
+  border: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .timeline-track::before {
+    left: 50%;
+  }
+  
+  .timeline-item {
+    padding-left: 0;
+    width: 100%;
+  }
+  
+  .timeline-item:nth-child(odd) {
+    padding-right: 50%;
+    padding-left: 0;
+  }
+  
+  .timeline-item:nth-child(even) {
+    padding-left: 50%;
+    padding-right: 0;
+  }
+  
+  .timeline-node {
+    left: 50%;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 2rem;
+    border-left: none;
+    border-right: 3px solid var(--accent-secondary);
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-date {
+    right: 40px;
+    left: auto;
+  }
+}
+*/ 

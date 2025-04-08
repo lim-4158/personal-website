@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+
+always make sure that the design created is compatible across all screen sizes
+
+make use of components to modularize the frontend code

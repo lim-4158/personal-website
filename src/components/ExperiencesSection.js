@@ -3,28 +3,37 @@
 import React from 'react';
 import ExperienceCard from '@/components/ExperienceCard';
 
-const experiencesData = [
+export const experiencesData = [
   {
     title: "Software Engineer Intern",
     company: "Immersive Reality Labs NUS",
     period: "Jan 2025 – Present",
     description: [
-      "Developed AI customer and investor agents for startup students to practice interview and pitching skills",
-      "Researched the effectiveness of multimodal AI agents in enhancing educational experiences"
+      "Developed AI investor agents with web browsing capabilities for startup students to practice pitching skills and receive constructive feedback",
+      "Researched with various prompt engineering techniques to improve the quality of the AI agents",
     ],
-    skills: ["AI", "Machine Learning", "Educational Technology"]
+    skills: ["AI Agents", "Entrepreneurship", "Fine-tuning"]
+  },
+  {
+    title: "Software Developer",
+    company: "Eusoff Hackers",
+    period: "Aug 2024 – Present",
+    description: [
+      "Digitalized Eusoff Hall operations by developing systems for CCA Registration and Jersey Bidding",
+      "Reduced manual processing time by 90% through automated data management and outcome allocation"
+    ],
+    skills: ["System Architecture", "Web Development"]
   },
   {
     title: "Software Engineer Intern",
     company: "NUS Enterprise",
     period: "June 2024 – Dec 2024",
     description: [
-      "Collaborated with startups to conceptualise and develop prototypes or MVPs using agile methodologies",
+      "Collaborated with startups and researchers to conceptualise and develop prototypes or MVPs",
       "Architected and implemented full-stack applications using Django, TypeScript and React",
-      "Designed and implemented a monitoring tool and dashboard for patients' vitals from zero to one",
-      "Supported the development of a Single Sign-On solution for streamlined authentication and authorisation"
+      "Implemented single sign-on solutions and monitoring tools for healthcare applications"
     ],
-    skills: ["Django", "TypeScript", "React", "Full-stack Development", "Agile"]
+    skills: ["Full-stack Development", "Agile", "Entrepreneurship"]
   }
 ];
 
