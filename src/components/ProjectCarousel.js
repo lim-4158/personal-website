@@ -83,6 +83,9 @@ const ProjectCarousel = ({ projects }) => {
                   {project.projectType && (
                     <span className="project-type-tag">{project.projectType}</span>
                   )}
+                  {project.period && (
+                    <div className="project-period">{project.period}</div>
+                  )}
                   <p className="project-description">{project.description}</p>
                 </div>
                 {isActive && (
@@ -98,16 +101,18 @@ const ProjectCarousel = ({ projects }) => {
                       </div>
                     )}
                     
-                    <div className="project-technologies">
-                      <h4>Technologies</h4>
-                      <div className="carousel-techs">
-                        {project.technologies.map((tech, idx) => (
-                          <span key={idx} className="carousel-tech-tag">{tech}</span>
-                        ))}
+                    {project.technologies && project.technologies.length > 0 && (
+                      <div className="project-technologies">
+                        <h4>Technologies</h4>
+                        <div className="carousel-techs">
+                          {project.technologies.map((tech, idx) => (
+                            <span key={idx} className="carousel-tech-tag">{tech}</span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                     
-                    {project.links && (
+                    {project.links && Object.keys(project.links).length > 0 && (
                       <div className="project-links">
                         {project.links.github && (
                           <a 
@@ -117,7 +122,7 @@ const ProjectCarousel = ({ projects }) => {
                             className="project-link github"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            GitHub
+                            <i className="fab fa-github"></i> GitHub
                           </a>
                         )}
                         {project.links.live && (
@@ -128,7 +133,32 @@ const ProjectCarousel = ({ projects }) => {
                             className="project-link live"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            Live Demo
+                            <i className="fas fa-external-link-alt"></i> Live Demo
+                          </a>
+                        )}
+                        {project.links.demo && (
+                          <a 
+                            href={project.links.demo} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link demo"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {project.links.demo.includes('youtube') ? 
+                              <><i className="fab fa-youtube"></i> Demo</> : 
+                              <><i className="fas fa-laptop-code"></i> Demo</>
+                            }
+                          </a>
+                        )}
+                        {project.links.dorahacks && (
+                          <a 
+                            href={project.links.dorahacks} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link dorahacks"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <i className="fas fa-trophy"></i> DoraHacks
                           </a>
                         )}
                       </div>

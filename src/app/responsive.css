@@ -182,6 +182,24 @@
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
   }
+  
+  /* Adjust project links for better display on mobile */
+  .project-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .project-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    flex: 0 0 calc(50% - 0.5rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-period {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -210,6 +228,12 @@
   /* CRT effect reduced on small screens for performance */
   .scanline {
     opacity: 0.1;
+  }
+  
+  .project-link {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    flex: 0 0 100%;
   }
 }
 
