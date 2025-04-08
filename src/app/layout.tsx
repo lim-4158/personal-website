@@ -24,6 +24,7 @@ export default function RootLayout({
         {/* CRT scanline effect */}
         <div className="scanline"></div>
         {children}
+        <Analytics />
       </body>
     </html>
   )
