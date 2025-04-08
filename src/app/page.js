@@ -4,10 +4,11 @@ import React, { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import TimelineExperience from '@/components/TimelineExperience';
-import ProjectsSection from '@/components/ProjectsSection';
+import ProjectCarousel from '@/components/ProjectCarousel';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import Optimizations from '@/components/Optimizations';
 import { experiencesData } from '@/components/ExperiencesSection';
+import { projectsData } from '@/components/ProjectsSection';
 
 export default function Home() {
   // Add intersection observer for section animations
@@ -65,7 +66,7 @@ export default function Home() {
       <section id="projects" className="content-section">
         <div className="container">
           <h2 className="section-title">Projects</h2>
-          <ProjectsSection />
+          <ProjectCarousel projects={projectsData} />
         </div>
       </section>
       
