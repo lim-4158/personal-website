@@ -1602,3 +1602,10 @@ section {
   position: absolute;
   left: 0;
 }
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}

@@ -50,7 +50,7 @@ export default function Home() {
             </p>
             <div className="hero-buttons">
               <a href="#experiences" className="btn btn-primary">View My Work</a>
-              <a href="#contact" className="btn btn-outline">Get In Touch</a>
+              <a href="https://www.linkedin.com/in/teng-hong-lim/" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Get In Touch</a>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ export const experiencesData = [
       "Developed AI investor agents with web browsing capabilities for startup students to practice pitching skills and receive constructive feedback",
       "Researched with various prompt engineering techniques to improve the quality of the AI agents",
     ],
-    skills: ["AI Agents", "Entrepreneurship", "Fine-tuning"]
+    skills: ["AI Agents", "LangChain", "Fine-tuning"]
   },
   {
     title: "Software Developer",
